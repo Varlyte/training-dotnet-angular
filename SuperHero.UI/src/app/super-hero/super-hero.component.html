@@ -1,0 +1,26 @@
+<table class="table table-dark table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Place</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let hero of heroes"> -->
+    <tr *ngFor="let hero of heroes; let i = index">
+
+      <th scope="row">{{ hero.name }}</th>
+      <td>{{ hero.firstName }}</td>
+      <td>{{ hero.lastName }}</td>
+      <td>{{ hero.place }}</td>
+      <td><button type="button" class= "btn btn-secondary" (click)="editHero(hero)">Edit</button></td>
+      <!-- <td>  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Edit</button></td> -->
+  </tbody>
+</table>
+
+<!-- <div class = "collapse" id="collapseExample"> -->
+<app-edit-hero [hero]="heroToEdit" (heroesUpdated)="updateHeroList($event)"></app-edit-hero>
+<!-- </div> -->
+<button type="button" class="btn btn-success" (click)="initNewHero()">Create New Hero </button>
